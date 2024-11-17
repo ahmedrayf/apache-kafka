@@ -23,10 +23,9 @@ Before running this application, ensure you have the following installed:
 git clone https://github.com/ahmedrayf/apache-kafka.git
 cd spring-boot-kafka-demo
 ```
-### Step 2: Start Kafka and Zookeeper
+### Step 2: Start Kafka and Zookeeper using docker
 ```bash
-zookeeper-server-start.sh config/zookeeper.properties
-kafka-server-start.sh config/server.properties
+docker compose up -d 
 ```
 
 ### Step 3: Build and Run the Maven Application
@@ -35,10 +34,10 @@ mvn spring-boot:run
 ```
 
 ## License
-This project is licensed under the MIT License. See the LICENSE file for details.
+This project is licensed under Ahmed Rayef License.
 
 ## Author
-### Ahmed Rayf
+### Ahmed Rayef
 
 [Website](https://ahmedrayf.github.io/)
 
