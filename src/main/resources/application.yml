@@ -19,3 +19,9 @@ spring:
 #      value-serializer: org.apache.kafka.common.serialization.StringSerializer
       value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
 
+
+
+Apache-Kafka:
+  topic:
+    json: json-topic
+    string: string-topic

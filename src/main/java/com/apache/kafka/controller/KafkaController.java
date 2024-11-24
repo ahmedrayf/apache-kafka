@@ -3,8 +3,9 @@ package com.apache.kafka.controller;
 
 import com.apache.kafka.payload.Student;
 import com.apache.kafka.producer.KafkaJsonProducer;
-import com.apache.kafka.producer.KafkaProducer;
+import com.apache.kafka.producer.KafkaStringProducer;
 import com.apache.kafka.respone.BaseResponse;
+import com.apache.kafka.service.KafkaService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -20,12 +21,11 @@ import java.time.LocalDateTime;
 @RequiredArgsConstructor
 public class KafkaController {
 
-    private final KafkaProducer kafkaProducer;
-    private final KafkaJsonProducer kafkaJsonProducer;
+    private final KafkaService service;
 
-    @PostMapping("/send")
+    @PostMapping("/string")
     public ResponseEntity<BaseResponse<String>> sendMessage(@RequestBody String message) {
-        kafkaProducer.send(message);
+        service.sendMessage(message);
         return new ResponseEntity<>(BaseResponse.<String>builder()
                 .httpStatus(HttpStatus.OK)
                 .message("Message queued successfully")
@@ -34,7 +34,7 @@ public class KafkaController {
 
     @PostMapping("/json")
     public ResponseEntity<BaseResponse<String>> sendJson(@RequestBody Student student) {
-        kafkaJsonProducer.send(student);
+        service.sendMessage(student);
         return new ResponseEntity<>(BaseResponse.<String>builder()
                 .httpStatus(HttpStatus.OK)
                 .message("Student queued successfully")
