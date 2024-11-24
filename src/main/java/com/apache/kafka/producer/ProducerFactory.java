@@ -1,8 +1,6 @@
 package com.apache.kafka.producer;
 
-import com.apache.kafka.payload.Student;
 import jakarta.annotation.PostConstruct;
-import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
@@ -11,11 +9,8 @@ import java.util.Map;
 
 @Component
 @Slf4j
-//@RequiredArgsConstructor
 public class ProducerFactory {
 
-//    private final KafkaStringProducer kafkaStringProducer;
-//    private final KafkaJsonProducer kafkaJsonProducer;
     private final Map<Class<?>, Producer<?>> producerMap = new HashMap<>();
     private final Map<String, Producer<?>> producerBeans;
 
@@ -30,7 +25,6 @@ public class ProducerFactory {
         }
         log.info("Registered Producers: {}", producerMap.keySet());
     }
-
 
     @SuppressWarnings("unchecked")
     public <T> Producer<T> getProducer(Class<T> messageType) {
