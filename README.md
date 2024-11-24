@@ -2,6 +2,10 @@
 
 This project demonstrates a Spring Boot application integrating Apache Kafka for message streaming and processing. It uses the Strategy Pattern to dynamically select Kafka producers based on the message type.
 
+##Kafka Intro session:
+[Session](https://docs.google.com/presentation/d/1gu6QNSRF0heW_n7aZXaR5HohxW6sQPJlZgKuBX272Jc/edit#slide=id.gc6f980f91_0_33)
+
+
 ## Features
 - Kafka Producer: Sends messages to a Kafka topic.
 - Kafka Consumer: Listens to messages from a Kafka topic.
