@@ -13,7 +13,7 @@ This project demonstrates how to integrate **Apache Kafka** with a **Spring Boot
 Before running this application, ensure you have the following installed:
 - **Java 17** or later
 - **Apache Kafka** and **Zookeeper** (running locally or on a server)
-- **Maven** or **Gradle**
+- **Maven**
 
 ---
 
