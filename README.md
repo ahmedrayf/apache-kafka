@@ -1,16 +1,19 @@
 # Spring Boot Kafka Demo
 
-This project demonstrates how to integrate **Apache Kafka** with a **Spring Boot** application. It showcases both producer and consumer functionalities for sending and receiving messages using Kafka.
+This project demonstrates a Spring Boot application integrating Apache Kafka for message streaming and processing. It uses the Strategy Pattern to dynamically select Kafka producers based on the message type.
 
 ## Features
 - Kafka Producer: Sends messages to a Kafka topic.
 - Kafka Consumer: Listens to messages from a Kafka topic.
 - Easy configuration through `application.properties`.
+- Dynamic producer selection using the Strategy Pattern.
+- Configuration-based Kafka topic creation.
 
 ---
 
 ## Prerequisites
 Before running this application, ensure you have the following installed:
+- Spring Boot 3.0+
 - **Java 17** or later
 - **Apache Kafka** and **Zookeeper** (running locally or on a server)
 - **Maven**
@@ -31,6 +34,29 @@ docker compose up -d
 ### Step 3: Build and Run the Maven Application
 ```bash
 mvn spring-boot:run
+```
+## REST APIs
+### Send String Message
+```bash
+POST /api/v1/message/string
+```
+#### Request Body:
+```bash
+"Hello, Kafka!"
+```
+
+### Send Json Message
+``` bash
+POST /api/v1/message/json
+```
+#### Request Body:
+```bash
+{
+    "id": 1,
+    "firstName": "Ahmed",
+    "lastName": "Rayef"
+}
+
 ```
 
 ## License
